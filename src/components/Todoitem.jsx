@@ -12,13 +12,20 @@ const Todoitem = ({ item, todos, setTodos }) => {
     );
     setTodos(newArry);
   }
-  const taskcomp = item.done ? styles.completed : "";
+  // const taskcomp = item.done ? styles.completed : "";
+
   return (
     <div className={styles.item}>
       <div className={styles.itemName}>
-        <span className={taskcomp} onClick={() => handleClick(item.name)}>
+        <input
+          type="checkbox"
+          checked={item.done}
+          onChange={() => handleClick(item.name)}
+        />
+        <span>{item.name}</span>
+        {/* <span className={taskcomp} onClick={() => handleClick(item.name)}>
           {item.name}
-        </span>
+        </span> */}
         <span>
           <button onClick={() => handledelete(item)} className={styles.delete}>
             x
